@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.org.adilson.MainController">
+	<top>
+		<VBox maxHeight="600.0" maxWidth="780.0" minHeight="600.0" minWidth="780.0" prefHeight="600.0" prefWidth="780.0" BorderPane.alignment="CENTER">
+			<children>
+				<Pane prefHeight="56.0" prefWidth="780.0">
+					<children>
+						<Button fx:id="botaoMusicas" layoutX="274.0" layoutY="8.0" mnemonicParsing="false" onAction="#botaoMusicas_Action" text="Musicas">
+							<font>
+								<Font name="System Bold Italic" size="18.0" />
+							</font>
+						</Button>
+						<Button fx:id="botaoLivros" layoutX="419.0" layoutY="8.0" mnemonicParsing="false" onAction="#botaoLivros_Action" text="Livros">
+							<font>
+								<Font name="System Bold Italic" size="18.0" />
+							</font>
+						</Button>
+						<Label layoutX="385.0" layoutY="19.0" text="&amp;">
+							<font>
+								<Font name="System Bold" size="18.0" />
+							</font>
+						</Label>
+					</children>
+				</Pane>
+				<Pane prefHeight="491.0" prefWidth="780.0">
+					<children>
+						<TextField fx:id="txfPesquisa" layoutX="29.0" layoutY="14.0" prefHeight="25.0" prefWidth="595.0" />
+						<TableView fx:id="tabelaTableViewClasse" layoutX="5.0" layoutY="50.0" prefHeight="441.0" prefWidth="770.0">
+							<columns>
+								<TableColumn prefWidth="317.0" text="Nome">
+									<cellValueFactory>
+										<PropertyValueFactory property="coluna01" />
+									</cellValueFactory>
+								</TableColumn>
+								<TableColumn minWidth="0.0" prefWidth="432.0" text="Pasta">
+									<cellValueFactory>
+										<PropertyValueFactory property="coluna02" />
+									</cellValueFactory>
+								</TableColumn>
+							</columns>
+						</TableView>
+                  <RadioButton fx:id="radioButtonPasta" layoutX="663.0" layoutY="18.0" mnemonicParsing="false" text="Pasta">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </RadioButton>
+					</children>
+				</Pane>
+            <Pane prefHeight="51.0" prefWidth="780.0">
+               <children>
+                  <Label fx:id="labelMensagem" layoutX="27.0" layoutY="17.0" prefHeight="17.0" prefWidth="720.0" />
+               </children></Pane>
+			</children>
+		</VBox>
+	</top>
+</BorderPane>

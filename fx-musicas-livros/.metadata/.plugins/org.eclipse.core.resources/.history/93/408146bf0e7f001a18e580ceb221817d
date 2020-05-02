@@ -1,0 +1,5 @@
+package br.org.adilson.jpa.utils;
+
+public class JpaUtils {
+
+}

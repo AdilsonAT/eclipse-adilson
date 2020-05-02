@@ -1,0 +1,5 @@
+package br.org.adilson.jpa.models;
+
+public class Pessoa {
+
+}

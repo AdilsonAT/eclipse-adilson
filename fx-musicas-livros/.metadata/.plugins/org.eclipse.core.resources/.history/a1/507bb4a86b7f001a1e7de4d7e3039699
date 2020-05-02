@@ -1,0 +1,5 @@
+package br.org.adilson.jpa.services.impl;
+
+public class PessoaService {
+
+}
