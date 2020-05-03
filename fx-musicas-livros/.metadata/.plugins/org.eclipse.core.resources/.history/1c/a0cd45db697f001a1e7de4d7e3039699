@@ -1,5 +1,0 @@
-package br.org.adilson.services.interfaces;
-
-public interface CrudService {
-
-}

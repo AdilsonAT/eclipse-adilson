@@ -14,8 +14,8 @@ import com.mongodb.client.MongoDatabase;
 
 public class Biblioteca {
 
-	public static void main(String[] args) {
-
+//	public static void main(String[] args) {
+	public static void main(String path) {
 		MongoClient client = new MongoClient();		// conexão
 		MongoDatabase bancoDeDados = client.getDatabase("biblioteca");		// banco de dados
 		MongoCollection<Document> livros = bancoDeDados.getCollection("livro");		// coleção
@@ -27,7 +27,10 @@ public class Biblioteca {
 		String linhaSplit[] = new String[10];	
 			 
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Adilson\\Documents\\listaLivros.txt"));
+			
+		
+//			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Adilson\\Documents\\listaLivros.txt"));
+			BufferedReader br = new BufferedReader(new FileReader(path));
 
 			while (br.ready()) {
 				

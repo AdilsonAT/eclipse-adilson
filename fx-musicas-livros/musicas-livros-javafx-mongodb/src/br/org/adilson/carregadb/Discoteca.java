@@ -14,7 +14,6 @@ import com.mongodb.client.MongoDatabase;
 public class Discoteca {
 
 	public static void main(String[] args) {
-
 		MongoClient client = new MongoClient();		// conexão
 		MongoDatabase bancoDeDados = client.getDatabase("discoteca");		// banco de dados
 		MongoCollection<Document> discos = bancoDeDados.getCollection("disco");		// coleção
@@ -25,7 +24,8 @@ public class Discoteca {
 		Document inseredisco = new Document();
 		String linhaSplit[] = new String[10];	
 			 
-		try {
+		try {	
+			
 			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Adilson\\Documents\\lista.txt"));
 
 			while (br.ready()) {
