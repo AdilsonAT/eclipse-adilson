@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pacoteTestes.Teste001Controller">
+   <top>
+      <Label text="Label" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <Label text="Label" BorderPane.alignment="CENTER" />
+   </bottom>
+   <right>
+      <Label text="Label" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <Label text="Label" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <Button fx:id="botaoFazAlgo" mnemonicParsing="false" onAction="#botaoFazAlgo_Action" text="Button" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

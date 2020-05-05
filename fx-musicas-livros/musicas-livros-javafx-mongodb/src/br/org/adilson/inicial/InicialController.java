@@ -1,23 +1,21 @@
 package br.org.adilson.inicial;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import br.org.adilson.carregadb.Biblioteca;
+import br.org.adilson.carregadb.DVDteca;
+import br.org.adilson.carregadb.Discoteca;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
 
 public class InicialController implements Initializable{
 	
 	@FXML
-	private Button botaoMain;
+	private Button botaoMongodbKill;
 	@FXML
 	private Label labelMensagem;
 	@FXML
@@ -34,29 +32,29 @@ public class InicialController implements Initializable{
 		
 		try {
 			Runtime.getRuntime().exec("mongod");
-//			Runtime.getRuntime().exec("tskill mongod");
-//			tasklist /FI "IMAGENAME eq mongod"
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}	
 	}
 	
 	public void carregaMusicas_Action() {
+		Discoteca.main();
 	}
 	
 	public void carregaLivros_Action() {
-		FileChooser f = new FileChooser();
-		f.getExtensionFilters().add(new ExtensionFilter("Lista de Livros", "listalivros.txt"));
-		File file = f.showOpenDialog(new Stage());
-		String path = file.getAbsolutePath();
-
-		labelMensagem.setText("Path > " + path);
-		System.out.println(path);
-		
-		Biblioteca.main(path);
+		Biblioteca.main();
 	}
 	
 	public void carregaDVDs_Action() {
+		DVDteca.main();
+	}
+	
+	public void mongodbKill_Action() {
+		try {
+		Runtime.getRuntime().exec("tskill mongod");
+//		tasklist /FI "IMAGENAME eq mongod"
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 	}
 }

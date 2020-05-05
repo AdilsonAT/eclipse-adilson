@@ -1,6 +1,7 @@
 package br.org.adilson.carregadb;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -12,10 +13,20 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.FileChooser.ExtensionFilter;
+
 public class Biblioteca {
 
 //	public static void main(String[] args) {
-	public static void main(String path) {
+	public static void main() {
+		
+		FileChooser f = new FileChooser();
+		f.getExtensionFilters().add(new ExtensionFilter("Lista de Livros", "listalivros.txt"));
+		File file = f.showOpenDialog(new Stage());
+		String path = file.getAbsolutePath();
+		
 		MongoClient client = new MongoClient();		// conexão
 		MongoDatabase bancoDeDados = client.getDatabase("biblioteca");		// banco de dados
 		MongoCollection<Document> livros = bancoDeDados.getCollection("livro");		// coleção

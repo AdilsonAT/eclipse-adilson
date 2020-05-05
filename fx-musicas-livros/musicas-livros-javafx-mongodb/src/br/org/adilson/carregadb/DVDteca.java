@@ -1,4 +1,5 @@
 package br.org.adilson.carregadb;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -16,29 +17,30 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
 
-public class Discoteca {
+public class DVDteca {
 
 //	public static void main(String[] args) {
 	public static void main() {
 		
 		FileChooser f = new FileChooser();
-		f.getExtensionFilters().add(new ExtensionFilter("Lista de Musicas", "listamusicas.txt"));
+		f.getExtensionFilters().add(new ExtensionFilter("Lista de DVDs", "listadvds.txt"));
 		File file = f.showOpenDialog(new Stage());
 		String path = file.getAbsolutePath();
 		
 		MongoClient client = new MongoClient();		// conexão
-		MongoDatabase bancoDeDados = client.getDatabase("discoteca");		// banco de dados
-		MongoCollection<Document> discos = bancoDeDados.getCollection("disco");		// coleção
+		MongoDatabase bancoDeDados = client.getDatabase("dvdteca");		// banco de dados
+		MongoCollection<Document> dvds = bancoDeDados.getCollection("dvd");		// coleção
 		
 		BasicDBObject delete = new BasicDBObject();		// limpar a coleção
-		discos.deleteMany(delete);						//
+		dvds.deleteMany(delete);						//
 		
-		Document inseredisco = new Document();
+		Document inseredvd = new Document();
 		String linhaSplit[] = new String[10];	
 			 
-		try {	
+		try {
 			
-//			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Adilson\\Documents\\lista.txt"));
+		
+//			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Adilson\\Documents\\listadvds.txt"));
 			BufferedReader br = new BufferedReader(new FileReader(path));
 
 			while (br.ready()) {
@@ -47,17 +49,20 @@ public class Discoteca {
 				String pasta = null;
 				
 				linhaSplit = linha.split("\\\\");
-				if (linhaSplit[linhaSplit.length - 1].toLowerCase().contains(".mp")) {
+				
+				if (linhaSplit[linhaSplit.length - 1].lastIndexOf(".") != -1) {
 					pasta = linhaSplit[0] + "\\";
 					for(Integer i=1; i<linhaSplit.length-1; i++ ) {
 						pasta = pasta + linhaSplit[i] + "\\";
-					}					
+					}		
+										
 					ObjectId id = new ObjectId();
-					inseredisco.append("musica", linhaSplit[linhaSplit.length - 1])
-								.append("pasta", pasta)
-								.append("_id", id);
+					inseredvd.append("tipo", linhaSplit[linhaSplit.length - 1].substring(linhaSplit[linhaSplit.length -1 ].lastIndexOf(".") + 1))
+							   .append("dvd", linhaSplit[linhaSplit.length - 1])
+							   .append("pasta", pasta)
+							   .append("_id", id);
 					
-					discos.insertOne(inseredisco);
+					dvds.insertOne(inseredvd);
 				}
 			}
 			
@@ -69,3 +74,4 @@ public class Discoteca {
 		client.close();		
 	}
 }
+
