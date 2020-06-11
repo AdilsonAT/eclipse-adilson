@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="br.org.adilson.jpa.utils.JpaUtils"/>
 <fullyQualifiedTypeName name="br.org.adilson.jpa.services.interfaces.CrudService"/>
 <fullyQualifiedTypeName name="br.org.adilson.jpa.services.impl.PessoaService"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javafx.stage.FileChooser"/>
 <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
 <fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
@@ -32,4 +31,6 @@
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="org.apache.poi.xssf.usermodel.XSSFWorkbook"/>
+<fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.PrintOrientation"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
